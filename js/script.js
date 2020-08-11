@@ -1,7 +1,7 @@
 'use strict';
 
-const statusDisplay = document.getElementById('status');
-const count = document.getElementById('numberTurns');
+const statusDisplay = document.querySelector('#status');
+const count = document.querySelector('#numberTurns');
 
 let gameActive = true;
 let currentPlayer = "X";
@@ -22,8 +22,8 @@ const winnLines = [
 ];
 
 function handlePlayerTurn() {
-  const p1 = document.getElementById('player1'),
-        p2 = document.getElementById('player2');
+  const p1 = document.querySelector('#player1'),
+        p2 = document.querySelector('#player2');
 
   if (currentPlayer === 'X') {
     p1.style.background = '#8458B3';
@@ -94,20 +94,14 @@ function handleRestart() {
     gameState = ['', '', '', '', '', '', '', '', ''];
     handlePlayerTurn();
 
-    let x = document.getElementsByClassName('cell');
-    for (let i = 0; x[i]; ++i) {
-      x[i].innerHTML = '';
-      x[i].style.color = '#232d55';
-      x[i].style.fontSize = '60px';
-    }
+    document.querySelectorAll('.cell').forEach(cell => {
+      cell.innerHTML = "";
+      cell.style.color = '#232d55';
+      cell.style.fontSize = '60px'});
 }
 
 handlePlayerTurn();
 
-document.addEventListener('click', function(event) {
-  if (event.target.classList.contains('cell')) {
-    handleClick(event);
-  }
-}, false);
-
-document.getElementById('restart').addEventListener('click', handleRestart);
+document.querySelectorAll('.cell')
+        .forEach(cell => cell.addEventListener('click', handleClick));
+document.querySelector('#restart').addEventListener('click', handleRestart);
