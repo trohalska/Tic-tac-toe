@@ -1,0 +1,74 @@
+body {
+  font-family: "Lato", sans-serif;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+section {
+  text-align: center;
+  padding: 30px;
+  background: #e5eaf5c0;
+
+  /* border: 1px solid red; */
+}
+
+#field {
+  padding: 30px;
+}
+
+#container {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  width: 306px;
+  margin: auto;
+}
+.cell {
+  font-family: "Finger Paint", sans-serif;
+  /* color: #139de2; */
+  color: #232d55;
+  width: 100px;
+  height: 100px;
+  box-shadow: 0 0 0 1px #6e92a3;
+  border: 1px solid #6e92a3;
+  cursor: pointer;
+  line-height: 100px;
+  font-size: 60px;
+  background: #a0d2ebc0;
+}
+/* #232d55 */
+
+#sidebar {
+  width: 125px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#player  {flex: 1;}
+#turns   {flex: 1;}
+#status  {flex: 4;}
+#restart {flex: 1;}
+
+#player1,
+#player2 {
+  box-sizing: border-box;
+  background: #d0bdf4;
+  border-radius: 4px;
+  padding: 10px 0;
+  margin: 0 0 10px 0;
+}
+
+/* #turns {
+
+} */
+#titleTurns {
+  font-size: .8em;
+}
+#numberTurns {
+  font-size: 1.4em;
+  margin: 0;
+}
