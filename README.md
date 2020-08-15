@@ -1,2 +1,4 @@
 # Tic-tac-toe
-Create game with javascript
+Create a game with html, css and javascript.
+
+You can play it here: https://codepen.io/trohalska/full/vYGGexg
