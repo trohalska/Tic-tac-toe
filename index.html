@@ -19,28 +19,26 @@
 <body>
   <h1 id="title">Tic tac toe</h1>
   <main>
-    <section id="field">
-      <div id="container">
-        <div id="0" class="cell"></div>
-        <div id="1" class="cell"></div>
-        <div id="2" class="cell"></div>
-        <div id="3" class="cell"></div>
-        <div id="4" class="cell"></div>
-        <div id="5" class="cell"></div>
-        <div id="6" class="cell"></div>
-        <div id="7" class="cell"></div>
-        <div id="8" class="cell"></div>
-      </div>
+    <section id="startBox" class="sidebar">
+      <label for="columns">Columns:</label>
+      <input type="number" id="columns" min="3" max="10" placeholder="3"/>
+      <label for="rows">Rows:</label>
+      <input type="number" id="rows" min="3" max="10" placeholder="3"/>
+      <label for="steps">Win length: </label>
+      <input type="number" id="steps" min="3" max="10" placeholder="3"/>
+      <button id="start" class="button_box">START</button>
     </section>
-    <section id="sidebar">
-      <p id="player1">Player 1</p>
-      <p id="player2">Player 2</p>
+    <section id="field">
+    </section>
+    <section class="sidebar">
+      <p id="player1" class="button_box">Player 'X'</p>
+      <p id="player2" class="button_box">Player 'O'</p>
       <div id="turns">
-        <p id="titleTurns">Nuber of turns</p>
+        <p id="titleTurns">Number of turns</p>
         <p id="numberTurns">0</p>
       </div>
       <h2 id="status"></h2>
-      <button id="restart">PLAY AGAIN</button>
+      <button id="restart" class="button_box">RESET</button>
     </section>
   </main>
 
