@@ -4,6 +4,10 @@ const statusDisplay = document.getElementById('status')
 const countField = document.getElementById('numberTurns')
 const startBox = document.getElementById('startBox')
 const playField = document.getElementById('field')
+const player1_name = document.getElementById('player1_name')
+const player2_name = document.getElementById('player2_name')
+const player1 = document.getElementById('player1')
+const player2 = document.getElementById('player2')
 
 let gameActive = true
 let currentPlayer = 'X'
@@ -59,6 +63,8 @@ let drawField = () => {
 }
 
 let handleStart = () => {
+    player1.innerHTML = player1_name.value === '' ? 'Player \'X\'' : player1_name.value
+    player2.innerHTML = player2_name.value === '' ? 'Player \'O\'' : player2_name.value
     cols = checkInput(document.getElementById('columns').value)
     rows = checkInput(document.getElementById('rows').value)
     steps = checkInput(document.getElementById('steps').value)
@@ -150,15 +156,12 @@ let isWinning = (y, x) => {
 // ----------------------------------  GAME ONGOING
 
 let handlePlayerSwitch = () => {
-    const p1 = document.querySelector('#player1'),
-        p2 = document.querySelector('#player2')
-
     if (currentPlayer === 'X') {
-        p1.style.background = '#8458B3'
-        p2.style.background = '#d0bdf4'
+        player1.style.background = '#8458B3'
+        player2.style.background = '#d0bdf4'
     } else {
-        p1.style.background = '#d0bdf4'
-        p2.style.background = '#8458B3'
+        player1.style.background = '#d0bdf4'
+        player2.style.background = '#8458B3'
     }
 }
 
@@ -206,18 +209,32 @@ function winnActions(winner) {
 }
 
 // ----------------------------------  RESET GAME
+let handlePlayAgain = () => {
+    gameActive = true
+    currentPlayer = 'X'
+    counter = 0
+    countField.innerHTML = '0'
+    statusDisplay.innerHTML = ''
+    statusDisplay.style.color = 'black'
+    player1.style.background = player2.style.background = '#d0bdf4'
+    playField.removeChild(document.getElementById('container'))
+    handleStart()
+}
+
 let handleRestart = () => {
     gameActive = true
     currentPlayer = 'X'
     counter = 0
     countField.innerHTML = '0'
-    statusDisplay.innerHTML = '';
-    statusDisplay.style.color = 'black';
-    document.querySelector('#player1').style.background =
-        document.querySelector('#player2').style.background = '#d0bdf4'
+    statusDisplay.innerHTML = ''
+    statusDisplay.style.color = 'black'
+    player1.style.background = player2.style.background = '#d0bdf4'
+    player1_name.value = player2_name.value = ''
+    player1.innerHTML = player2.innerHTML = '-'
     startBox.className = 'sidebar'
     playField.removeChild(document.getElementById('container'))
 }
 
 document.querySelector('#start').addEventListener('click', handleStart)
+document.querySelector('#playAgain').addEventListener('click', handlePlayAgain)
 document.querySelector('#restart').addEventListener('click', handleRestart)

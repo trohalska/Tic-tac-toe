@@ -2,12 +2,13 @@ body {
   font-family: "Lato", sans-serif;
   text-align: center;
   font-size: 16px;
+  caret-color: transparent;
 }
 
 main {
   display: flex;
   justify-content: center;
-  min-height: 50vh;
+  min-height: 65vh;
 }
 
 section {
